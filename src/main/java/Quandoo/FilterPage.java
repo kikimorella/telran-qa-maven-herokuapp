@@ -11,37 +11,37 @@ public class FilterPage extends Page {
     }
 
     @FindBy(xpath = "//h1")
-    static WebElement headerText;
+    WebElement headerText;
 
     @FindBy(xpath = "//div[@data-qa=\'listing-header\']")
-    static WebElement listingHeader;
+    WebElement listingHeader;
 
     @FindBy(xpath = "//span[@data-qa=\"search-text\"]")
-    static WebElement searchText;
+    WebElement searchText;
 
     @FindBy(xpath = "//div[@data-qa=\'results-count\']")
-    static WebElement results;
+    WebElement results;
 
     @FindBy(xpath = "//div[@data-qa=\'listing-header\']/div/div/span")
-    static WebElement errorText;
+    WebElement errorText;
 
-    public static boolean listingHeaderDisplayed() {
+    public boolean listingHeaderDisplayed() {
         return listingHeader.isDisplayed();
     }
 
-    public static String getHeaderText() {
+    public String getHeaderText() {
         return headerText.getText();
     }
 
-    public static String getSearchText() {
+    public String getSearchText() {
         return searchText.getText();
     }
 
-    public static String getResults() {
+    public String getResults() {
         return results.getText();
     }
 
-    public static String getErrorText() {
+    public String getErrorText() {
         return errorText.getText();
     }
 }
