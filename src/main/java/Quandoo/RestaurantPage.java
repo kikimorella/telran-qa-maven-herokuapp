@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RestaurantPage extends Page {
+    private static WebDriver driver;
 
     public static String RESTAURANT_URL = BASE_URL + "/place/wartesaal-11828";
 
@@ -44,9 +45,10 @@ public class RestaurantPage extends Page {
         Thread.sleep(5000);
     }
 
-    public void clickOnReserveNowButton() throws InterruptedException {
+    public ReservationPage clickOnReserveNowButton() throws InterruptedException {
         reserveNowBtn.click();
         Thread.sleep(5000);
+        return new ReservationPage(driver);
     }
 
     public String getPhotosTabText() {
