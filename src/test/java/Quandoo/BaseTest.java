@@ -13,10 +13,10 @@ public class BaseTest {
 
     protected HomePage homePage;
     protected FilterPage filterPage;
-    protected RestaurantPage restaurantPage;
-    protected ReservationPage reservationPage;
+    public RestaurantPage restaurantPage;
+    public ReservationPage reservationPage;
 
-    protected WebDriver driver;
+    public WebDriver driver;
 
     @Before
     public void initialSetUp() {
@@ -25,6 +25,7 @@ public class BaseTest {
         driver.manage().window().setSize(new Dimension(1829, 1038));
         restaurantPage = new RestaurantPage(driver);
         homePage = new HomePage(driver);
+        filterPage = new FilterPage(driver);
     }
 
     @After

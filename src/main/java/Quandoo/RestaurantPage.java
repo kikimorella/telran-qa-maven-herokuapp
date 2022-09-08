@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RestaurantPage extends Page {
-    private static WebDriver driver;
 
     public static String RESTAURANT_URL = BASE_URL + "/place/wartesaal-11828";
 
@@ -33,7 +32,6 @@ public class RestaurantPage extends Page {
 
     @FindBy(xpath = "//*[@data-qa='sub-nav-tab-tab-photos']/div/h2")
     static WebElement photosTabText;
-
 
     public void clickOnPhotosTab() throws InterruptedException {
         photosTab.click();
