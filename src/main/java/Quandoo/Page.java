@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  */
 public abstract class Page {
 
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     // constant url
 
@@ -20,18 +20,21 @@ public abstract class Page {
 
     public static String CITY_NAME = "Berlin";
     public static String EXPECTED_CITY_HEADER_TEXT = "Restaurants in " + CITY_NAME;
+    public static String EXPECTED_CITY_HEADER_TEXT_ONE_OPTION = "Restaurant in " + CITY_NAME;
+    public static String CITY_RESTAURANT = "The Hat";
+    public static String SPECIAL_CITY_RESTAURANT = "Wartesaal";
+    public static String RESTAURANT_NEAR_ME = "Restaurants Near Me";
+    public static String TYPE_OF_CUISINE = "Pizza";
 
-    /*
+    /**
      * Constructor injecting the WebDriver interface
-     *
-     * @param webDriver
      */
     public Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (id = "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
+    @FindBy(id = "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
     static WebElement acceptCookies;
 
     public void clickAcceptCookiesBtn() {

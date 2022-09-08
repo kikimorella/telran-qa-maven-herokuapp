@@ -6,33 +6,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends Page {
-    private static WebDriver driver;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(xpath = "(//input[@name=\'destination\'])[2]")
-    static WebElement destinationField;
+    WebElement destinationField;
 
     @FindBy(xpath = "(//input[@name=\'dining\'])[2]")
-    static WebElement restaurantField;
+    WebElement restaurantField;
 
     @FindBy(xpath = "(//button[@data-qa=\'search-bar-near-me-icon\'])[2]")
-    static WebElement nearMeBtn;
+    WebElement nearMeBtn;
 
-    @FindBy(xpath = "//*[@data-qa=\"button-search-find-hero\"]")
-    static WebElement findBtn;
+    @FindBy(xpath = "//*[@data-qa=\'button-search-find-hero\']")
+    WebElement findBtn;
 
     public FilterPage clickOnFindBtn() throws InterruptedException {
         findBtn.click();
-        Thread.sleep(7000);
+        Thread.sleep(4000);
         return new FilterPage(driver);
     }
 
     public void fillDestinationField(String where) throws InterruptedException {
         destinationField.sendKeys(where);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         destinationField.sendKeys(Keys.ENTER);
     }
 
@@ -40,8 +39,9 @@ public class HomePage extends Page {
         restaurantField.sendKeys(what);
     }
 
-    public FilterPage clickOnNearMeBtn() {
+    public FilterPage clickOnNearMeBtn() throws InterruptedException {
         nearMeBtn.click();
+        Thread.sleep(4000);
         return new FilterPage(driver);
     }
 }

@@ -19,13 +19,11 @@ public class FilterPage extends Page {
     @FindBy(xpath = "//span[@data-qa=\"search-text\"]")
     WebElement searchText;
 
-    @FindBy(xpath = "//div[@data-qa=\'results-count\']")
-    WebElement results;
+    @FindBy(xpath = "//a[@href='/en/place/wartesaal-11828']")
+    WebElement wartesaal;
 
-    @FindBy(xpath = "//div[@data-qa=\'listing-header\']/div/div/span")
-    WebElement errorText;
-
-    public boolean listingHeaderDisplayed() {
+    public boolean listingHeaderDisplayed() throws InterruptedException {
+        Thread.sleep(2000);
         return listingHeader.isDisplayed();
     }
 
@@ -37,11 +35,9 @@ public class FilterPage extends Page {
         return searchText.getText();
     }
 
-    public String getResults() {
-        return results.getText();
-    }
-
-    public String getErrorText() {
-        return errorText.getText();
+    public RestaurantPage clickOnRestaurant() throws InterruptedException {
+        wartesaal.click();
+        Thread.sleep(2000);
+        return new RestaurantPage(driver);
     }
 }

@@ -13,10 +13,12 @@ public class RestaurantPage extends Page {
     }
 
     // Test data
-
+    public static String RESTAURANT_NAME = "Wartesaal";
     public static String TEXT_PHOTOS_OF = "Photos of";
     public static String MENU_TEXT = "Menu from";
 
+    @FindBy(xpath = "//h1")
+    WebElement restaurantName;
 
     @FindBy(xpath = "//*[@data-qa='sub-nav-tab-tab-photos']")
     static WebElement photosTab;
@@ -33,6 +35,18 @@ public class RestaurantPage extends Page {
     @FindBy(xpath = "//*[@data-qa='sub-nav-tab-tab-photos']/div/h2")
     static WebElement photosTabText;
 
+    public String getRestaurantName() {
+        return restaurantName.getText();
+    }
+
+    public String getPhotosTabText() {
+        return photosTabText.getText();
+    }
+
+    public String getMenuFromText() {
+        return menuFromText.getText();
+    }
+
     public void clickOnPhotosTab() throws InterruptedException {
         photosTab.click();
         Thread.sleep(5000);
@@ -47,13 +61,5 @@ public class RestaurantPage extends Page {
         reserveNowBtn.click();
         Thread.sleep(5000);
         return new ReservationPage(driver);
-    }
-
-    public String getPhotosTabText() {
-        return photosTabText.getText();
-    }
-
-    public String getMenuFromText() {
-        return menuFromText.getText();
     }
 }
